@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.HangmanController">
+   <center>
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="Score:">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="scoreLabel" fx:id="scoreLabel" text="0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Errors:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="errorsLabel" fx:id="errorsLabel" text="0" />
+                  <Label text="Timer:" />
+                  <Label id="timerLabel" fx:id="timerLabel" />
+                  <Button id="timerButton" fx:id="timerButton" mnemonicParsing="false" onAction="#timerButtonPressed" text="Pause" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <Label id="guessedLetters" fx:id="guessedLetters" alignment="CENTER" contentDisplay="CENTER" text="TEXT" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <ImageView id="hangmanImage" fx:id="hangmanImage" fitHeight="286.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem id="newGame1Button" fx:id="newGame1Button" mnemonicParsing="false" onAction="#newGameButtonPressed" text="New Game (1 player)" />
+                  <MenuItem id="newGame2Button" fx:id="newGame2Button" mnemonicParsing="false" onAction="#newGameButtonPressed" text="New Game (2 players)" />
+                  <MenuItem id="closeButton" fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonPressed" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem id="optionsButton" fx:id="optionsButton" mnemonicParsing="false" onAction="#optionsButtonPressed" text="Options" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem id="aboutButton" fx:id="aboutButton" mnemonicParsing="false" onAction="#aboutButtonPressed" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Select a letter in the buttons bellow or type the desired letter" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER">
+               <children>
+                  <TextField id="letterTextField" fx:id="letterTextField" prefHeight="25.0" prefWidth="52.0" />
+                  <Button id="guessButton" fx:id="guessButton" mnemonicParsing="false" onAction="#guessLetterButtonPressed" text="Guess Letter" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </FlowPane>
+            <FlowPane id="lettersPane" fx:id="lettersPane" alignment="CENTER" columnHalignment="CENTER" hgap="3.0">
+               <children>
+                  <Button id="a_button" fx:id="a_button" mnemonicParsing="false" onAction="#letterPressed" text="A" />
+                  <Button id="b_button" fx:id="b_button" mnemonicParsing="false" onAction="#letterPressed" text="B" />
+                  <Button id="c_button" fx:id="c_button" mnemonicParsing="false" onAction="#letterPressed" text="C" />
+                  <Button id="d_button" fx:id="d_button" mnemonicParsing="false" onAction="#letterPressed" text="D" />
+                  <Button id="e_button" fx:id="e_button" mnemonicParsing="false" onAction="#letterPressed" text="E" />
+                  <Button id="f_button" fx:id="f_button" mnemonicParsing="false" onAction="#letterPressed" text="F" />
+                  <Button id="g_button" fx:id="g_button" mnemonicParsing="false" onAction="#letterPressed" text="G" />
+                  <Button id="h_button" fx:id="h_button" mnemonicParsing="false" onAction="#letterPressed" text="H" />
+                  <Button id="i_button" fx:id="i_button" mnemonicParsing="false" onAction="#letterPressed" text="I" />
+                  <Button id="j_button" fx:id="j_button" mnemonicParsing="false" onAction="#letterPressed" text="J" />
+                  <Button id="k_button" fx:id="k_button" mnemonicParsing="false" onAction="#letterPressed" text="K" />
+                  <Button id="l_button" fx:id="l_button" mnemonicParsing="false" onAction="#letterPressed" text="L" />
+                  <Button id="m_button" fx:id="m_button" mnemonicParsing="false" onAction="#letterPressed" text="M" />
+                  <Button id="n_button" fx:id="n_button" mnemonicParsing="false" onAction="#letterPressed" text="N" />
+                  <Button id="o_button" fx:id="o_button" mnemonicParsing="false" onAction="#letterPressed" text="O" />
+                  <Button id="p_button" fx:id="p_button" mnemonicParsing="false" onAction="#letterPressed" text="P" />
+                  <Button id="q_button" fx:id="q_button" mnemonicParsing="false" onAction="#letterPressed" text="Q" />
+                  <Button id="r_button" fx:id="r_button" mnemonicParsing="false" onAction="#letterPressed" text="R" />
+                  <Button id="s_button" fx:id="s_button" mnemonicParsing="false" onAction="#letterPressed" text="S" />
+                  <Button id="t_button" fx:id="t_button" mnemonicParsing="false" onAction="#letterPressed" text="T" />
+                  <Button id="u_button" fx:id="u_button" mnemonicParsing="false" onAction="#letterPressed" text="U" />
+                  <Button id="v_button" fx:id="v_button" mnemonicParsing="false" onAction="#letterPressed" text="V" />
+                  <Button id="w_button" fx:id="w_button" mnemonicParsing="false" onAction="#letterPressed" text="W" />
+                  <Button id="x_button" mnemonicParsing="false" onAction="#letterPressed" text="X" fx:id="x_button" />
+                  <Button id="y_button" fx:id="y_button" mnemonicParsing="false" onAction="#letterPressed" text="Y" />
+                  <Button id="z_button" fx:id="z_button" mnemonicParsing="false" onAction="#letterPressed" text="Z" />
+                  <Button id="hintButton" fx:id="hintButton" mnemonicParsing="false" onAction="#hintButtonPressed" text="Hint" textAlignment="CENTER" />
+                  <Button id="solveButton" mnemonicParsing="false" onAction="#solveButtonPressed" text="Solve" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
